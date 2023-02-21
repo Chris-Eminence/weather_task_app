@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_counter/app.dart';
-import 'package:flutter_counter/counter_observer.dart';
+import 'package:flutter_counter/screens/city_screen.dart';
+import 'package:flutter_counter/screens/loading_screen.dart';
+import 'package:flutter_counter/screens/report_screen.dart';
 
-void main() {
 
-  Bloc.observer = CounterObserver();
-  runApp( CounterApp());
+void main() async {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Weather App',
+      theme: ThemeData(),
+      home: LoadingScreen()
+    );
+  }
 }
